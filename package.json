@@ -1,5 +1,9 @@
 {
   "name": "nodejs-es6-example",
+  "engines": {
+    "node": "^6.x",
+    "npm" : "^3.x"
+  },
   "version": "1.0.0",
   "description": "Mocha Chai.js unit testing for ES6 with Istanbul code coverage",
   "main": "index.js",
