@@ -92,5 +92,40 @@ describe('Rectangle', () => {
             }).should.throw(Error);
         });
     });
-    
+
+    describe('#area', () => {
+        let rectangle;
+
+        beforeEach(() => {
+            rectangle = new Rectangle(10, 20);
+        });
+
+        it('returns the area', () => {
+            rectangle.area.should.equal(200);
+        });
+
+        it('can not be changed', () => {
+            (() => {
+                rectangle.area = 1000;
+            }).should.throw(Error);
+        });
+    });
+
+    describe('#circumference', () => {
+        let rectangle;
+
+        beforeEach(() => {
+            rectangle = new Rectangle(10, 20);
+        });
+
+        it('returns the circumference', () => {
+            rectangle.circumference.should.equal(60);
+        });
+
+        it('can not be changed', () => {
+            (() => {
+                rectangle.circumference = 1000;
+            }).should.throw(Error);
+        });
+    });
 });
