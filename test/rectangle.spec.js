@@ -20,7 +20,7 @@ let Rectangle = require(path.join(__dirname, '..', 'rectangle'));
 // anymore. In this case we are not using "this" so the new
 // syntax is just used for brevity.
 describe('Rectangle', () => {
-    
+
     describe('#constructor()', () => {
         it('requires two numerical arguments', () => {
             (() => {
@@ -69,4 +69,28 @@ describe('Rectangle', () => {
             }).should.throw(Error);
         });
     });
+
+    describe('#height', () => {
+        let rectangle;
+
+        beforeEach(() => {
+            rectangle = new Rectangle(10, 20);
+        });
+
+        it('returns the height', () => {
+            rectangle.height.should.equal(20);
+        });
+
+        it('can be changed', () => {
+            rectangle.height = 30;
+            rectangle.height.should.equal(30);
+        });
+
+        it('only accepts numerical values', () => {
+            (() => {
+                rectangle.height = 'foo';
+            }).should.throw(Error);
+        });
+    });
+    
 });
