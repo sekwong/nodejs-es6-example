@@ -8,120 +8,109 @@ chai.should();
 // Import the Rectangle class.
 let Rectangle = require(path.join(__dirname, '..', 'rectangle'));
 
-// The fat arrow (=>) syntax is a new way to define
-// functions in ES6. One feature that is different
-// from the usual "function" keyword is that the scope
-// is inherited from the parent, so there is no need to write
-//
-//   function() {
-//     ...
-//   }.bind(this)
-//
-// anymore. In this case we are not using "this" so the new
-// syntax is just used for brevity.
-describe('Rectangle', () => {
+describe('Rectangle', function () {
 
-    describe('#constructor()', () => {
-        it('requires two numerical arguments', () => {
-            (() => {
+    describe('#constructor()', function () {
+        it('requires two numerical arguments', function () {
+            (function () {
                 new Rectangle();
             }).should.throw(Error);
 
-            (() => {
+            (function () {
                 new Rectangle(1.0);
             }).should.throw(Error);
 
-            (() => {
+            (function () {
                 new Rectangle('foo', 'bar');
             }).should.throw(Error);
 
-            (() => {
+            (function () {
                 new Rectangle(5, 7);
             }).should.not.throw(Error);
         });
     });
 
-    describe('#width', () => {
+    describe('#width', function () {
         let rectangle;
 
-        beforeEach(() => {
+        beforeEach(function () {
             // Create a new Rectangle object before every test.
             rectangle = new Rectangle(10, 20);
         });
 
-        it('returns the width', () => {
+        it('returns the width', function () {
             // This will fail if "rectangle.width" does
             // not equal 10.
             rectangle.width.should.equal(10);
         });
 
-        it('can be changed', () => {
+        it('can be changed', function () {
             // Assert that the width can be changed.
             rectangle.width = 30;
             rectangle.width.should.equal(30);
         });
 
-        it('only accepts numerical values', () => {
+        it('only accepts numerical values', function () {
             // Assert that an error will be thrown if
             // the width it set to a non-numerical value.
-            (() => {
+            (function () {
                 rectangle.width = 'foo';
             }).should.throw(Error);
         });
     });
 
-    describe('#height', () => {
+    describe('#height', function () {
         let rectangle;
 
-        beforeEach(() => {
+        beforeEach(function () {
             rectangle = new Rectangle(10, 20);
         });
 
-        it('returns the height', () => {
+        it('returns the height', function () {
             rectangle.height.should.equal(20);
         });
 
-        it('can be changed', () => {
+        it('can be changed', function () {
             rectangle.height = 30;
             rectangle.height.should.equal(30);
         });
 
-        it('only accepts numerical values', () => {
-            (() => {
+        it('only accepts numerical values', function () {
+            (function () {
                 rectangle.height = 'foo';
             }).should.throw(Error);
         });
     });
 
-    describe('#area', () => {
+    describe('#area', function () {
         let rectangle;
 
-        beforeEach(() => {
+        beforeEach(function () {
             rectangle = new Rectangle(10, 20);
         });
 
-        it('returns the area', () => {
+        it('returns the area', function () {
             rectangle.area.should.equal(200);
         });
 
-        it('can not be changed', () => {
+        it('can not be changed', function () {
             rectangle.area = 1000;
             rectangle.area.should.equal(200);
         });
     });
 
-    describe('#circumference', () => {
+    describe('#circumference', function () {
         let rectangle;
 
-        beforeEach(() => {
+        beforeEach(function () {
             rectangle = new Rectangle(10, 20);
         });
 
-        it('returns the circumference', () => {
+        it('returns the circumference', function () {
             rectangle.circumference.should.equal(60);
         });
 
-        it('can not be changed', () => {
+        it('can not be changed', function () {
             rectangle.area = 1000;
             rectangle.area.should.equal(200);
         });
