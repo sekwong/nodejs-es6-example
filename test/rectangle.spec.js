@@ -105,9 +105,8 @@ describe('Rectangle', () => {
         });
 
         it('can not be changed', () => {
-            (() => {
-                rectangle.area = 1000;
-            }).should.throw(Error);
+            rectangle.area = 1000;
+            rectangle.area.should.equal(200);
         });
     });
 
@@ -123,9 +122,8 @@ describe('Rectangle', () => {
         });
 
         it('can not be changed', () => {
-            (() => {
-                rectangle.circumference = 1000;
-            }).should.throw(Error);
+            rectangle.area = 1000;
+            rectangle.area.should.equal(200);
         });
     });
 });
