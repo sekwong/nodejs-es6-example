@@ -18,5 +18,9 @@
   "homepage": "https://github.com/sekwong/nodejs-es6-example#readme",
   "dependencies": {
     "eslint": "^3.14.1"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0"
   }
 }
